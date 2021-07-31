@@ -66,8 +66,10 @@ public class FoodTruckApp {
 		}
 	}
 
-	public double highestRated() {
-		return 0.0;
+	public int highestRated() {
+		int highestRating = 0;
+		
+		return highestRating;
 	}
 
 	public void createFoodTruck() {
