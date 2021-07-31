@@ -47,6 +47,7 @@ public class FoodTruck {
 	public void setUID(int uID) {
 		UID = uID;
 	}
+	
 	public String getFoodTruckData() {
 		String output = "name=" + name + ", rating=" + rating
 				+ ", UID=" + UID;
