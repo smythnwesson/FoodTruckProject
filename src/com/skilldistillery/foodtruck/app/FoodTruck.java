@@ -16,13 +16,20 @@ public class FoodTruck {
 		this();
 		this.name = name;
 		this.rating = rating;
-		this.food = food;
+		this.setFood(food);
 		
 	}
 	
 	//methods
 	
-	
+
+	public String getFood() {
+		return food;
+	}
+
+	public void setFood(String food) {
+		this.food = food;
+	}
 
 	public String getName() {
 		return name;
@@ -61,7 +68,7 @@ public class FoodTruck {
 	@Override
 	public String toString() {
 		return "FoodTruck [name=" + name + ", rating=" + rating
-				+ ", UID=" + UID + "]";
+				+ ", food=" + food + " UID=" + UID + "]";
 	}
 
 

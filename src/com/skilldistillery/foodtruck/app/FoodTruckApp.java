@@ -13,6 +13,7 @@ public class FoodTruckApp {
 
 		FoodTruckApp foodTrucksApp = new FoodTruckApp();
 		foodTrucksApp.run();
+		
 
 	}
 
@@ -28,19 +29,19 @@ public class FoodTruckApp {
 			System.out.println("4) QUIT");
 			System.out.println("----------------------------------------");
 
-			int foodTruckMenu = sc.nextInt();
-
+			String foodTruckMenu = sc.next();
+			
 			switch (foodTruckMenu) {
-			case 1:
+			case "1":
 				allFoodTrucks();
 				break;
-			case 2:
-				System.out.println();
+			case "2":
+				System.out.println(averageRating());
 				break;
-			case 3:
-				System.out.println();
+			case "3":
+				System.out.println(highestRated());
 				break;
-			case 4:
+			case "4":
 				System.out.println("Goodbye");
 				keepGoing = false;
 				break;
@@ -53,23 +54,39 @@ public class FoodTruckApp {
 		sc.close();
 	}
 
-	public double averageRating(double avg) {
-		return 0.0;
+	public double averageRating() {
+		double sum = 0.0;
+		
+		for(int i = 0; i < numFoodTrucks; i++) {
+			
+				sum += foodTrucks[i].getRating();
+				
+					}
+		return sum/numFoodTrucks;
+		
 	}
 
 	public void allFoodTrucks() {
 		for (FoodTruck foodTruck : foodTrucks) {
-			if(foodTruck == null) {
-				continue;
+			if(foodTruck != null) {
+				System.out.println(foodTruck);
+				
 			}
-			System.out.println(foodTruck);
 		}
 	}
 
-	public int highestRated() {
+	public String highestRated() {
+		FoodTruck temp = new FoodTruck();
 		int highestRating = 0;
-		
-		return highestRating;
+		for (FoodTruck foodTruck : foodTrucks) {
+			if(foodTruck != null) {
+			if(highestRating < foodTruck.getRating()) {
+				highestRating = foodTruck.getRating();
+				temp = foodTruck;
+			}
+			}
+		}
+		return temp.toString();
 	}
 
 	public void createFoodTruck() {
@@ -91,8 +108,10 @@ public class FoodTruckApp {
 			System.out.println("Please enter the type of food served");
 			String food = sc.nextLine();
 			FoodTruck foodT = new FoodTruck(name, rating, food);
-			foodTrucks [i] = foodT; 
+			foodTrucks [i] = foodT;
+			numFoodTrucks++;
 		}
 	}
 
+	
 }
